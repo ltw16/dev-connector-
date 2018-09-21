@@ -9,6 +9,11 @@ const posts = require("./routes/api/posts");
 
 const app = express();
 
+// Fix "No Access-Control-Allow-Origin" error
+var cors = require('cors');
+
+app.use(cors()); 
+
 // Body parser middleware
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
