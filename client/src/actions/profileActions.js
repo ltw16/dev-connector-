@@ -45,7 +45,7 @@ export const deleteAccount = () => dispatch => {
                     type: SET_CURRENT_USER,
                     payload: {}
                 })
-            ). catch(err =>
+            ).catch(err =>
                 dispatch({
                     type: GET_ERRORS,
                     payload: err.response.data
