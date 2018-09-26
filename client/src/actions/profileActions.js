@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { CLEAR_CURRENT_PROFILE, GET_PROFILE, PROFILE_LOADING } from "./types";
+import { GET_ERRORS, CLEAR_CURRENT_PROFILE, GET_PROFILE, PROFILE_LOADING } from "./types";
 
 // Get current profile
 export const getCurrentProfile = () => dispatch => {
@@ -21,6 +21,19 @@ export const getCurrentProfile = () => dispatch => {
         )
 }
 
+// Create Profile
+export const createProfile = (profileData, history) => dispatch => {
+    axios
+        .post("https://devconnector-liamwebb.c9users.io/api/profile", profileData)
+        .then(res => history.push("/dashboard"))
+        .catch(err =>
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        )
+}
+
 // Profile Loading
 export const setProfileLoading = () => {
     return {
@@ -34,3 +47,4 @@ export const clearCurrentProfile = () => {
         type: CLEAR_CURRENT_PROFILE
     }
 }
+
