@@ -31,8 +31,21 @@ export const createProfile = (profileData, history) => dispatch => {
                 type: GET_ERRORS,
                 payload: err.response.data
             })
-        )
-}
+        );
+};
+
+// Add experience
+export const addExperience = (expData, history) => dispatch => {
+  axios
+    .post('https://devconnector-liamwebb.c9users.io/api/profile/experience', expData)
+    .then(res => history.push('/dashboard'))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
 
 
 // Delete account & profile
