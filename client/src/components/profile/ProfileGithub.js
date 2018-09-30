@@ -22,14 +22,13 @@ class ProfileGithub extends Component {
                 client_id=${clientId}&client_secret=${clientSecret}`)
                 .then(res => res.json())
                 .then(data => {
-                    this.setState({
+                    if(this.refs.myRef) {
+                        this.setState({
                         repos: data
                     })
+                    }
                 })
                 .catch(err => console.log(err))
-    
-        
-        
     }
     
     render() {
