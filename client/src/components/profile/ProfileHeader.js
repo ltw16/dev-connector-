@@ -22,7 +22,7 @@ class ProfileHeader extends Component {
                       <p>
                         {isEmpty(profile.website) ? null : (
                             <a className="text-white p-2" href={profile.website} target="_blank">
-                              <i className="fab fa-globe fa-2x" />
+                              <i className="fas fa-globe fa-2x" />
                             </a>
                         )}
                         
