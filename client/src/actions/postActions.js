@@ -26,7 +26,7 @@ export const addPost = postData => dispatch => {
 }
 
 // Get Post
-export const getPost = () => dispatch => {
+export const getPosts = () => dispatch => {
     dispatch(setPostLoading());
     axios
         .get("https://devconnector-liamwebb.c9users.io/api/posts")
