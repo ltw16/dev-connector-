@@ -1,7 +1,10 @@
 {
   "name": "workspace",
   "version": "1.0.0",
-  "description": "",
+  "description": "Devconnector app",
+  "engines": {
+    "node": "6.11.2"
+  },
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
@@ -9,8 +12,7 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build
-      --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Liam",
   "license": "ISC",
