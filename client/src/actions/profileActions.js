@@ -6,7 +6,7 @@ import { GET_PROFILES, SET_CURRENT_USER, GET_ERRORS, CLEAR_CURRENT_PROFILE, GET_
 export const getCurrentProfile = () => dispatch => {
     dispatch(setProfileLoading());
     axios
-        .get("https://devconnector-liamwebb.c9users.io/api/profile")
+        .get("/api/profile")
         .then(res =>
             dispatch({
                 type: GET_PROFILE,
@@ -25,7 +25,7 @@ export const getCurrentProfile = () => dispatch => {
 export const getProfileByHandle = handle => dispatch => {
   dispatch(setProfileLoading());
   axios
-    .get(`https://devconnector-liamwebb.c9users.io/api/profile/handle/${handle}`)
+    .get(`/api/profile/handle/${handle}`)
     .then(res =>
       dispatch({
         type: GET_PROFILE,
@@ -45,7 +45,7 @@ export const getProfileByHandle = handle => dispatch => {
 // Create Profile
 export const createProfile = (profileData, history) => dispatch => {
     axios
-        .post("https://devconnector-liamwebb.c9users.io/api/profile", profileData)
+        .post("/api/profile", profileData)
         .then(res => history.push("/dashboard"))
         .catch(err =>
             dispatch({
@@ -58,7 +58,7 @@ export const createProfile = (profileData, history) => dispatch => {
 // Add experience
 export const addExperience = (expData, history) => dispatch => {
   axios
-    .post('https://devconnector-liamwebb.c9users.io/api/profile/experience', expData)
+    .post('/api/profile/experience', expData)
     .then(res => history.push('/dashboard'))
     .catch(err =>
       dispatch({
@@ -71,7 +71,7 @@ export const addExperience = (expData, history) => dispatch => {
 // Add education
 export const addEducation = (eduData, history) => dispatch => {
   axios
-    .post('https://devconnector-liamwebb.c9users.io/api/profile/education', eduData)
+    .post('/api/profile/education', eduData)
     .then(res => history.push('/dashboard'))
     .catch(err =>
       dispatch({
@@ -84,7 +84,7 @@ export const addEducation = (eduData, history) => dispatch => {
 // Delete Experience
 export const deleteExperience = (id) => dispatch => {
   axios
-    .delete(`https://devconnector-liamwebb.c9users.io/api/profile/experience/${id}`)
+    .delete(`/api/profile/experience/${id}`)
     .then(res => 
         dispatch({
             type: GET_PROFILE,
@@ -102,7 +102,7 @@ export const deleteExperience = (id) => dispatch => {
 // Delete Education
 export const deleteEducation = (id) => dispatch => {
   axios
-    .delete(`https://devconnector-liamwebb.c9users.io/api/profile/education/${id}`)
+    .delete(`/api/profile/education/${id}`)
     .then(res => 
         dispatch({
             type: GET_PROFILE,
@@ -121,7 +121,7 @@ export const deleteEducation = (id) => dispatch => {
 export const getProfiles = () => dispatch => {
     dispatch(setProfileLoading());
       axios
-        .get('https://devconnector-liamwebb.c9users.io/api/profile/all')
+        .get('/api/profile/all')
         .then(res => 
             dispatch({
                 type: GET_PROFILES,
@@ -139,7 +139,7 @@ export const getProfiles = () => dispatch => {
 export const deleteAccount = () => dispatch => {
     if(window.confirm("Are you sure? This can NOT be undone!")) {
         axios
-            .delete("https://devconnector-liamwebb.c9users.io/api/profile")
+            .delete("/api/profile")
             .then(res =>
                 dispatch({
                     type: SET_CURRENT_USER,

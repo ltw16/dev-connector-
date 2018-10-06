@@ -8,7 +8,7 @@ import jwt_decode from "jwt-decode";
 // Register User
 export const registerUser = (userData, history) => dispatch => {
     axios
-    .post("https://devconnector-liamwebb.c9users.io/api/users/register", userData)
+    .post("/api/users/register", userData)
     .then(res => history.push("/login"))
     .catch(err => 
         dispatch({
@@ -21,7 +21,7 @@ export const registerUser = (userData, history) => dispatch => {
 // Login - Get user token
 export const loginUser = (userData) => dispatch => {
     axios
-    .post("https://devconnector-liamwebb.c9users.io/api/users/login", userData)
+    .post("/api/users/login", userData)
     .then(res => {
         // Save to localStorage
         const { token } = res.data;
